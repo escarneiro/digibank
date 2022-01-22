@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 
@@ -16,11 +17,17 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
 	
-	@Column(nullable=false)
-	private Long clientID;
+//	@Column(nullable=false)
+//	private Long clientID;
+
+	@ManyToOne   //Um cliente pode ter mais de uma conta
+	private Client client;
 	
-	@Column(nullable=false)
-	private Long branchID;
+//	@Column(nullable=false)
+//	private Long branchID;
+
+	@ManyToOne
+	private Branch branch;
 	
 	@Column(nullable=false)
 	private Long accNumber;
@@ -31,6 +38,15 @@ public class Account {
 	@Column(nullable = false)
 	private Float currentBalance;		//saldo atual.
 	
+	/* Efetua crédito nesta conta */
+	public int processCredit(Float amount) {
+		this.currentBalance+=amount;
+		return(0); //todo: codigos de erro.
+	}
 	
-	
+	/* Efetua debito nesta conta */
+	public int processDebit(Float amount) {
+		this.currentBalance-=amount;
+		return(0);
+	}
 }
