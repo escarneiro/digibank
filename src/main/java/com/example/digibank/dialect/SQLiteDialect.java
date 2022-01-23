@@ -2,11 +2,11 @@ package com.example.digibank.dialect;
 
 
 /**
- *  Hibernate is not shipped with builtin support for some databases
+ *  Hibernate is not shipped with built-in support for some databases
  *  like the sqlite, for instance.
  *  
  *  
- *  So a dialect file is needed, among other little tweaks.
+ *  So a dialect file is needed, amongst other little tweaks.
  *  https://docs.jboss.org/hibernate/orm/4.3/javadocs/org/hibernate/dialect/Dialect.html
  */
 

@@ -12,10 +12,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Branch {
 	
 	@Id
@@ -28,7 +32,8 @@ public class Branch {
 	private String addressLine2;
 	
 	
-	@OneToMany
+	@OneToMany(mappedBy="branch")
+	@JsonIgnore
 	private List<Account> accounts;
 	
 }

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
@@ -21,12 +22,14 @@ public class Account {
 //	private Long clientID;
 
 	@ManyToOne   //Um cliente pode ter mais de uma conta
+	@JoinColumn(name="client_ID",referencedColumnName="ID")
 	private Client client;
 	
 //	@Column(nullable=false)
 //	private Long branchID;
 
 	@ManyToOne
+	@JoinColumn(name="branch_ID",referencedColumnName="ID")
 	private Branch branch;
 	
 	@Column(nullable=false)
