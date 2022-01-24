@@ -11,5 +11,7 @@ import com.example.digibank.models.Account;
 public interface AccountRepository extends JpaRepository<Account, Long>  {
 
 	List<Account> findByClient_ID(Long client_ID);
+	
+	Account findByBranch_IDAndAccNumber(Long branch_ID, Long accNumber);
 
 }
