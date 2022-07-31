@@ -17,3 +17,17 @@ INSERT INTO Account (client_ID	, branch_ID, accNumber, accountType, currentBalan
 	
 INSERT INTO Account (client_ID, branch_ID, accNumber, accountType, currentBalance)
 	VALUES ( 2 , 2 , 1 , 1 , 20.0 ) ; 	
+	
+	-- No encoding --
+INSERT INTO User (name, password, username)
+	VALUES ('USER','user123', 'user');
+	
+INSERT INTO User (name, password, username)
+	VALUES ('ADMIN','master123', 'admin');
+	
+INSERT INTO Role(user_id, role_name)
+	VALUES (1, 'USERS');
+	
+INSERT INTO Role(user_id, role_name)
+	VALUES (2, 'MANAGERS');	
+	
